@@ -1,8 +1,16 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import { OnboardingWizard } from "@ui/components/onboarding/onboarding-wizard"
 import { Button } from "@ui/components/ui/button"
 import { Input } from "@ui/components/ui/input"
 
 export default function CreateCompanyPage() {
+    const router = useRouter()
+    
+    const handleCreate = () => {
+        router.push("/onboarding/complete")
+    }
     return (
         <OnboardingWizard
             title="Create company workspace"
@@ -25,7 +33,12 @@ export default function CreateCompanyPage() {
                     </div>
                 </div>
                 <div className="pt-4">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-500 text-white">Create Workspace</Button>
+                    <Button 
+                        onClick={handleCreate}
+                        className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    >
+                        Create Workspace
+                    </Button>
                 </div>
             </div>
         </OnboardingWizard>

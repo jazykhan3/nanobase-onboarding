@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { AuthLayout } from "@ui/components/auth/auth-layout"
 import { AuthCard } from "@ui/components/auth/auth-card"
 import { Button } from "@ui/components/ui/button"
@@ -6,6 +9,12 @@ import { Input } from "@ui/components/ui/input"
 import { Icons } from "@ui/components/icons"
 
 export default function LoginPage() {
+    const router = useRouter()
+    
+    const handleLogin = () => {
+        // After login, redirect to verify token
+        router.push("/verify?token=example-token")
+    }
     return (
         <AuthLayout
             illustration={
@@ -58,11 +67,15 @@ export default function LoginPage() {
                     </div>
 
                     <div className="space-y-3 pt-2">
-                        <Button className="h-11 w-full bg-blue-600 text-[15px] font-medium text-white hover:bg-blue-700 transition-colors">
+                        <Button 
+                            onClick={handleLogin}
+                            className="h-11 w-full bg-blue-600 text-[15px] font-medium text-white hover:bg-blue-700 transition-colors"
+                        >
                             Login
                         </Button>
 
                         <Button
+                            onClick={handleLogin}
                             variant="outline"
                             className="h-11 w-full border-[#D2D2D2] bg-white text-[15px] font-medium text-zinc-900 hover:bg-zinc-50 flex items-center justify-center gap-3 transition-colors"
                         >

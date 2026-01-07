@@ -1,8 +1,16 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import { OnboardingWizard } from "@ui/components/onboarding/onboarding-wizard"
 import { Button } from "@ui/components/ui/button"
 import { Input } from "@ui/components/ui/input"
 
 export default function OnboardingPage() {
+    const router = useRouter()
+    
+    const handleContinue = () => {
+        router.push("/onboarding/company")
+    }
     return (
         <OnboardingWizard
             title="Tell us about yourself"
@@ -26,7 +34,12 @@ export default function OnboardingPage() {
                     <Input id="role" placeholder="Software Engineer" />
                 </div>
                 <div className="pt-4">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-500 text-white">Continue</Button>
+                    <Button 
+                        onClick={handleContinue}
+                        className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    >
+                        Continue
+                    </Button>
                 </div>
             </div>
         </OnboardingWizard>

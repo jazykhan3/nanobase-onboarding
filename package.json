@@ -1,0 +1,12 @@
+{
+    "name": "nanobase-monorepo",
+    "private": true,
+    "scripts": {
+        "dev": "pnpm --filter app dev",
+        "build": "pnpm --filter app build",
+        "lint": "pnpm --filter app lint"
+    },
+    "devDependencies": {
+        "typescript": "^5"
+    }
+}
